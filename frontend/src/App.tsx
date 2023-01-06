@@ -1,56 +1,39 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
-import axios from "axios";
+import useUsers from "./hocks/useUsers";
 
-type User = {
-  id: string,
-  name: string
-}
+
+
 
 function App() {
 
-  const [users, setUsers] = useState<User[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<any>();
+    const [users,setUsers] = useUsers([])
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get('/api/users');
-        setUsers(response.data);
-      } catch (err) {
-        setError(err);
-      } finally {
-        setLoading(false);
-      }
-    };
+    console.log("App, "+users)
+    //
+    // useEffect(() => {
+    //     (async () => {
+    //         const response = await axios.get<User[]>('/api/users');
+    //         setUsers(response.data)
+    //     })();
+    // }, []);
+    //
+    //    console.log(users)
 
-    fetchData();
-  }, []);
-
-  if (loading) {
-    return <p>Loading...</p>;
-  }
-
-  if (error) {
-    return <p>An error occurred: {error.message}</p>;
-  }
 
   return (
       <>
         <nav className="navbar">
-          <div className="logo">My App</div>
+          <div className="logo">ChatApp</div>
           <ul className="menu">
             <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
           </ul>
         </nav>
 
         <div className="sidebar">
           <h2>Sidebar</h2>
           <ul>
-            <li>{users[0].name}</li>
+            {users && users.length && users.filter(u => u.name !== "User2").map(u => <li key={u.id}>{u.id} {u.name}</li>)}
           </ul>
         </div>
       </>
