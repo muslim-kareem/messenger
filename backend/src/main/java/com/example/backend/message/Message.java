@@ -14,6 +14,7 @@ public class Message {
     private String authorId;
     private String receiverId;
 
+
     @CreatedDate
     private Date createdAt;
 }
