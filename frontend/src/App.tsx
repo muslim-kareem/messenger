@@ -7,37 +7,50 @@ import useUsers from "./hocks/useUsers";
 
 function App() {
 
-    const [users,setUsers] = useUsers([])
+    const [users] = useUsers([])
 
-    console.log("App, "+users)
-    //
-    // useEffect(() => {
-    //     (async () => {
-    //         const response = await axios.get<User[]>('/api/users');
-    //         setUsers(response.data)
-    //     })();
-    // }, []);
-    //
-    //    console.log(users)
+    const user1 = users && users.length && users.find(u =>  u.name === "User1")
+    const user2 = users && users.length && users.find(u =>  u.name === "User2")
 
+
+    let x = ""
+    function onChange(event: React.ChangeEvent<HTMLInputElement>){
+        x = event.target.value;
+    }
 
   return (
       <>
         <nav className="navbar">
           <div className="logo">ChatApp</div>
           <ul className="menu">
-            <li><a href="#">Home</a></li>
+            <li><a href="#">{user1 ? user1.name: null}</a></li>
           </ul>
         </nav>
 
+        <div className={"message-area-sidebar-container"}>
+
         <div className="sidebar">
-          <h2>Sidebar</h2>
+          <h2>Contacts</h2>
           <ul>
-            {users && users.length && users.filter(u => u.name !== "User2").map(u => <li key={u.id}>{u.id} {u.name}</li>)}
+              {user2? user2.name : null}
           </ul>
         </div>
+
+          <div className={"message-area"} >
+              <h2>Messages</h2>
+
+          </div>
+        </div>
+
+          <form>
+              <input onChange={onChange} />
+              <button type={"submit"}>send</button>
+          </form>
       </>
   );
 }
 
 export default App;
+
+// const user2 = users && users.length && users.filter(u => u.name === "User2").map(u => <li key={u.id}>{u.name}</li>);
+
