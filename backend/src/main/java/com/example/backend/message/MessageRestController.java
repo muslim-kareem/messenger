@@ -20,6 +20,7 @@ public class MessageRestController {
         return service.getMessageByAuthorId(id);
     }
 
+    // Adrian was here
     @GetMapping("/receiver/{id}")
     public Message getMessageByReceiverId(@PathVariable String id){
         return  service.getMessageByReceiverId(id);
