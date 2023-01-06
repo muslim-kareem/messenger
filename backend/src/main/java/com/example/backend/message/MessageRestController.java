@@ -15,14 +15,14 @@ public class MessageRestController {
         return  service.createMessage(theMessage);
     }
 
-    @GetMapping("/{authorId}")
-    public Message getMessageByAuthorId(@PathVariable String authorId){
-        return service.getMessageByAuthorId(authorId);
+    @GetMapping("/author/{id}")
+    public Message getMessageByAuthorId(@PathVariable String id){
+        return service.getMessageByAuthorId(id);
     }
 
-    @GetMapping("/{receiverId}")
-    public Message getMessageByReceibentId(@PathVariable String receiverId){
-        return  service.getMessageByReceiverId(receiverId);
+    @GetMapping("/receiver/{id}")
+    public Message getMessageByReceiverId(@PathVariable String id){
+        return  service.getMessageByReceiverId(id);
     }
 
 
