@@ -12,6 +12,7 @@ public class MessageRestController {
 
     @PostMapping
     public Message createMessage(@RequestBody Message theMessage){
+        theMessage.setId(null);
         return  service.createMessage(theMessage);
     }
 
