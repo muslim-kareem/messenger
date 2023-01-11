@@ -3,9 +3,10 @@ import './App.css';
 import useUsers from "./hocks/useUsers";
 import {Message} from "./model/Message";
 import {createMessage} from "./api/Api";
+import NavBar from "./components/NavBar";
 
 const initialState = {
-    id: "xx",
+    id: "",
     text: "",
     authorId: "",
     receiverId: "",
@@ -48,12 +49,7 @@ function App() {
 
   return (
       <>
-        <nav className="navbar">
-          <div className="logo">ChatApp</div>
-          <ul className="menu">
-            <li><a href="#">{user1 ? user1.name: null }</a></li>
-          </ul>
-        </nav>
+        <NavBar user={user1? user1: null}/>
 
         <div className={"message-area-sidebar-container"}>
         <div className="sidebar">
