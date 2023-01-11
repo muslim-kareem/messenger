@@ -23,10 +23,9 @@ class UserControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.post("/api/users")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("""
-                            
+                .content("""                       
                                 {
-                                    "id": "63bea5478c04f4794f7b1bcb",
+                               
                                     "name": "UserTest"
                                 }
                             
@@ -36,7 +35,7 @@ class UserControllerTest {
                 MockMvcResultMatchers.content().json("""
                            
                                {
-                                   "id": "63bea5478c04f4794f7b1bcb",
+                                 
                                    "name": "UserTest"
                                }
                            
