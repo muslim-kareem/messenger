@@ -1,14 +1,14 @@
 package com.example.backend.user;
 
-        import org.junit.jupiter.api.Test;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-        import org.springframework.boot.test.context.SpringBootTest;
-        import org.springframework.http.MediaType;
-        import org.springframework.test.annotation.DirtiesContext;
-        import org.springframework.test.web.servlet.MockMvc;
-        import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-        import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 
 @SpringBootTest
@@ -23,27 +23,21 @@ class UserControllerTest {
 
         mvc.perform(MockMvcRequestBuilders.post("/api/users")
                 .contentType(MediaType.APPLICATION_JSON)
-                .content("""                       
-                                {
-                               
+                .content("""         
+                                     {                                                     
                                     "name": "UserTest"
-                                }
-                            
-                        """)
+                                }""")
         ).andExpectAll(
                 MockMvcResultMatchers.status().isOk(),
                 MockMvcResultMatchers.content().json("""
-                           
-                               {
-                                 
+                               {                              
                                    "name": "UserTest"
-                               }
-                           
-                        """)
+                               }""")
         );
     }
+
     @Test
-    void getAll_whenEmpty_thenEmpty () throws Exception {
+    void getAll_whenEmpty_thenEmpty() throws Exception {
         mvc.perform(MockMvcRequestBuilders.get("/api/users"))
                 .andExpectAll(
                         MockMvcResultMatchers.status().isOk(),
