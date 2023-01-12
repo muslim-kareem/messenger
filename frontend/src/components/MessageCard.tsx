@@ -1,6 +1,8 @@
+import {Message} from "../model/Message";
+
 export default function MessageCard({message,isAuthor}:{
-    message: string
-    isAuthor: string
+    message: Message
+    isAuthor: Boolean
 }){
 
 
@@ -10,6 +12,9 @@ export default function MessageCard({message,isAuthor}:{
 
     return(
         <>
+            <div className={"message-card"}>
+                <div className={isAuthor?"author": "receiver"}>{message.text}</div>
+            </div>
         </>
     )
 }

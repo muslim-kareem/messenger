@@ -8,8 +8,8 @@ export const getUsers = async (): Promise<User[]> => {
 };
 
 
-export const getMessages = async (): Promise<Message> => {
-    const response = await axios.get<Message>('/api/messages');
+export const getMessages = async (): Promise<Message[]> => {
+    const response = await axios.get<Message[]>('/api/messages');
     return response.data;
 };
 
