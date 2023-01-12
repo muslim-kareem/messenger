@@ -65,8 +65,19 @@
 .message-card {
   display: inline-block;
 }
+
 .author {
+  margin-top: 5px;
   text-align: right;
-  display: block;
+  word-wrap:break-word;
+  white-space: pre-line;
+  padding: 10px;
+  background-color: #faf7f7;
+}
+
+.receiver {
+  margin-top: 5px;
+
+  background-color: #bfcad3;
 }
 

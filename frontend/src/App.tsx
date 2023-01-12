@@ -6,8 +6,6 @@ import {createMessage} from "./api/Api";
 import NavBar from "./components/NavBar";
 import Contacts from "./components/Contacts";
 import useMessages from "./hooks/useMessages";
-import MessageCard from "./components/MessageCard";
-import MessageArea from "./components/MessageArea";
 
 const messageToPostInitialState = {
     id: "",
@@ -26,10 +24,9 @@ function App() {
 
     console.log(messages)
 
-    const user2 = users && users.length && users.find(u =>  u.name === "User1")
-    const user1 = users && users.length && users.find(u =>  u.name === "User2")
+    const user1 = users && users.length && users.find(u =>  u.name === "User1")
+    const user2 = users && users.length && users.find(u =>  u.name === "User2")
     const constacts = users.filter(u => u.name !== "User1")
-
 
     function onChange(event: React.ChangeEvent<HTMLInputElement>){
         const {name, value} = event.target;
@@ -45,7 +42,6 @@ function App() {
         })
     }
 
-
     function onSubmit ( event: React.FormEvent<HTMLFormElement> ){
         event.preventDefault()
 
@@ -54,7 +50,6 @@ function App() {
         createMessage(messageToPost)
 
         setMessages([...messages, messageToPost])
-
         setMessageToPost(messageToPostInitialState)
 
     }
@@ -65,7 +60,7 @@ function App() {
 
         <div className={"message-area-sidebar-container"}>
         <Contacts users={constacts}/>
-        <MessageArea user={user1? user1: null} messages={messages}/>
+        {/*<MessageArea user={user1? user1: null} messages={messages}/>*/}
 
         </div>
 
@@ -75,7 +70,6 @@ function App() {
                   <button type={"submit"}>send</button>
               </form>
           </div>
-
 
       </>
   );

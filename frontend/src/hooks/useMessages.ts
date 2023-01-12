@@ -17,5 +17,17 @@ export default function useMessages(initialState: Message[]): [Message[], Dispat
         })();
     }, []);
 
+
+    useEffect(() => {
+        const id = setTimeout(() => {
+            (async () => {
+                const theMessages = await getMessages();
+                setMessages(theMessages)
+            })();
+        }, 500);
+
+    }, [messages])
+
+
     return [messages,setMessages];
 }

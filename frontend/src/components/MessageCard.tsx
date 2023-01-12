@@ -7,9 +7,7 @@ export default function MessageCard({message,isAuthor}:{
 
     return(
         <>
-
                 <div className={isAuthor?"author": "receiver"}>{message.text}</div>
-
         </>
     )
 }
