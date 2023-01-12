@@ -59,7 +59,9 @@ function App() {
         <NavBar user={user1? user1: null}/>
 
         <div className={"message-area-sidebar-container"}>
+
         <Contacts users={constacts}/>
+
         {/*<MessageArea user={user1? user1: null} messages={messages}/>*/}
 
         </div>

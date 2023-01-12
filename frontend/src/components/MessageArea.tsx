@@ -1,12 +1,24 @@
-import {Message} from "../model/Message";
-import {User} from "../model/User";
+
 import React, {useEffect, useRef} from "react";
 import MessageCard from "./MessageCard";
+import useUsers from "../hooks/useUsers";
+import useChatMessages from "../hooks/useChatMessages";
 
-export default function MessageArea({user, messages}:{
-    user: User | null
-    messages: Message[] | null
+export default function MessageArea({authorId,receiverId}:{
+    authorId: string
+    receiverId: string
 }){
+
+    const [users] = useUsers([])
+
+    const author = users && users.length && users.find(u =>  u.id === authorId)
+    const receiver = users && users.length && users.find(u =>  u.name === receiverId)
+
+    if(!author || !receiver){
+        return <div>No Author or Receiver </div>
+    }
+
+    const [chatMessages] = useChatMessages(author.id+" "+receiver.id)
 
 
 
@@ -16,13 +28,12 @@ export default function MessageArea({user, messages}:{
     }
     useEffect(() => {
         scrollToBottom()
-    }, [messages]);
+    }, [chatMessages]);
 
 
     return(
         <div className={"message-area"} >
-
-            {messages?.map(m => <MessageCard key={m.id} message={m} isAuthor={user?.id === m.authorId}/>)}
+            {chatMessages?.map(m => <MessageCard key={m.id} message={m} isAuthor={author?.id === m.authorId}/>)}
             <div ref={messagesEndRef} />
         </div>
     )

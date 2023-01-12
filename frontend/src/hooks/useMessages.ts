@@ -9,13 +9,6 @@ export default function useMessages(initialState: Message[]): [Message[], Dispat
     console.log(messages)
 
 
-    useEffect(() => {
-        (async () => {
-            const theMessages = await getMessages();
-            setMessages(theMessages)
-
-        })();
-    }, []);
 
 
     useEffect(() => {
