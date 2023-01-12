@@ -5,8 +5,11 @@ import {Message} from "./model/Message";
 import {createMessage} from "./api/Api";
 import NavBar from "./components/NavBar";
 import Contacts from "./components/Contacts";
+import useMessages from "./hooks/useMessages";
+import MessageCard from "./components/MessageCard";
+import MessageArea from "./components/MessageArea";
 
-const initialState = {
+const messageToPostInitialState = {
     id: "",
     text: "",
     authorId: "",
@@ -17,11 +20,14 @@ const initialState = {
 
 function App() {
 
-    const[messageToPost,setMessageToPost] = useState<Message>(initialState)
+    const[messageToPost,setMessageToPost] = useState<Message>(messageToPostInitialState)
     const [users] = useUsers([])
+    const [messages,setMessages] = useMessages([]);
 
-    const user1 = users && users.length && users.find(u =>  u.name === "User1")
-    const user2 = users && users.length && users.find(u =>  u.name === "User2")
+    console.log(messages)
+
+    const user2 = users && users.length && users.find(u =>  u.name === "User1")
+    const user1 = users && users.length && users.find(u =>  u.name === "User2")
     const constacts = users.filter(u => u.name !== "User1")
 
 
@@ -32,12 +38,14 @@ function App() {
             return
 
         setMessageToPost({
-            ...initialState,
+            ...messageToPostInitialState,
              [name]: value,
             authorId: user1.id,
             receiverId: user2.id
         })
     }
+
+
     function onSubmit ( event: React.FormEvent<HTMLFormElement> ){
         event.preventDefault()
 
@@ -45,7 +53,9 @@ function App() {
         if(messageToPost.text !== "")
         createMessage(messageToPost)
 
-        setMessageToPost(initialState)
+        setMessages([...messages, messageToPost])
+
+        setMessageToPost(messageToPostInitialState)
 
     }
 
@@ -54,9 +64,8 @@ function App() {
         <NavBar user={user1? user1: null}/>
 
         <div className={"message-area-sidebar-container"}>
-
         <Contacts users={constacts}/>
-
+        <MessageArea user={user1? user1: null} messages={messages}/>
 
         </div>
 

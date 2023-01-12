@@ -15,7 +15,7 @@ public class MessageService {
         return messageRepo.save(theMessage);
     }
 
-    public List<Message> getMessages(){
+    public List<Message> getAll(){
         return  messageRepo.findAll();
     }
 
