@@ -6,12 +6,11 @@ export default function Contacts({users}:{
 }){
 
 
-
     return(
         <div className="sidebar">
             <h2>Contacts</h2>
             <ul>
-                {users?.map(u => <div>{u.name}</div>)}
+                {users?.map(u => <div key={u.id}>{u.name}</div>)}
             </ul>
         </div>
     )

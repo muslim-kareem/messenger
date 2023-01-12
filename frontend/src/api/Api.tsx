@@ -13,6 +13,12 @@ export const getMessages = async (): Promise<Message[]> => {
     return response.data;
 };
 
+
+export const getMessage = async (id: string): Promise<Message> => {
+    const response = await axios.get<Message>('/api/messages'+id);
+    return response.data;
+};
+
 export const createMessage = async (message: Message): Promise<Message> => {
     const response = await axios.post<Message>('/api/messages',message);
     return response.data;

@@ -44,12 +44,13 @@
   margin-left: 20px;
   width: 65%;
   box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
-  overflow-x: hidden;
-  overflow-y: auto;
+  overflow: scroll;
+  overflow-x: unset;
 }
 
 .message-area h3{
   margin: 0;
+
 
 }
 
@@ -60,3 +61,23 @@
   height: 400px;
   margin-top: 20px;
 }
+
+.message-card {
+  display: inline-block;
+}
+
+.author {
+  margin-top: 5px;
+  text-align: right;
+  word-wrap:break-word;
+  white-space: pre-line;
+  padding: 10px;
+  background-color: #faf7f7;
+}
+
+.receiver {
+  margin-top: 5px;
+
+  background-color: #bfcad3;
+}
+
