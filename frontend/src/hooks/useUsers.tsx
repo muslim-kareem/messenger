@@ -16,8 +16,5 @@ export default function useUsers(initialState: User[]): [User[], Dispatch<SetSta
         })();
     }, []);
 
-
-
-
     return [users,setUsers];
 }

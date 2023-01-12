@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './App.css';
-import useUsers from "./hocks/useUsers";
+import useUsers from "./hooks/useUsers";
 import {Message} from "./model/Message";
 import {createMessage} from "./api/Api";
 import NavBar from "./components/NavBar";
+import Contacts from "./components/Contacts";
 
 const initialState = {
     id: "",
@@ -21,6 +22,7 @@ function App() {
 
     const user1 = users && users.length && users.find(u =>  u.name === "User1")
     const user2 = users && users.length && users.find(u =>  u.name === "User2")
+    const constacts = users.filter(u => u.name !== "User1")
 
 
     function onChange(event: React.ChangeEvent<HTMLInputElement>){
@@ -52,22 +54,15 @@ function App() {
         <NavBar user={user1? user1: null}/>
 
         <div className={"message-area-sidebar-container"}>
-        <div className="sidebar">
-          <h2>Contacts</h2>
-          <ul>
-              {user2 ? user2.name : null}
-          </ul>
-        </div>
 
-          <div className={"message-area"} >
-              <h2>Messages</h2>
+        <Contacts users={constacts}/>
 
-          </div>
+
         </div>
 
           <div className={"message-input"}>
               <form onSubmit={onSubmit}>
-                  <input name={"text"} type={"text"} onChange={onChange} />
+                  <input name={"text"} type={"text"} value={messageToPost.text} onChange={onChange} />
                   <button type={"submit"}>send</button>
               </form>
           </div>
