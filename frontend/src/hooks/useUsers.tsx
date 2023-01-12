@@ -6,8 +6,6 @@ import {getUsers} from "../api/Api";
 export default function useUsers(initialState: User[]): [User[], Dispatch<SetStateAction<User[]>>] {
     const [users, setUsers] = useState<User[]>([]);
 
- console.log(users)
-
 
     useEffect(() => {
         (async () => {

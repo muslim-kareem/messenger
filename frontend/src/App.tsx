@@ -6,6 +6,9 @@ import {createMessage} from "./api/Api";
 import NavBar from "./components/NavBar";
 import Contacts from "./components/Contacts";
 import useMessages from "./hooks/useMessages";
+import {useParams} from "react-router-dom";
+import MessageArea from "./components/MessageArea";
+import {User} from "./model/User";
 
 const messageToPostInitialState = {
     id: "",
@@ -18,27 +21,37 @@ const messageToPostInitialState = {
 
 function App() {
 
+    let id = window.location.pathname.replace("/app/","")
+    console.log("muslimsId",id)
+
+
     const[messageToPost,setMessageToPost] = useState<Message>(messageToPostInitialState)
     const [users] = useUsers([])
     const [messages,setMessages] = useMessages([]);
 
-    console.log(messages)
 
-    const user1 = users && users.length && users.find(u =>  u.name === "User1")
-    const user2 = users && users.length && users.find(u =>  u.name === "User2")
-    const constacts = users.filter(u => u.name !== "User1")
+    const author = users && users.length && users.find(u =>  u.name === "User1")
+    const receiver = users && users.length && users.find(u =>  u.id == id)
+
+
+    if(!author ){
+        return <div>error</div>
+    }
+
+
+    const contacts = users.filter(u => u.id !== author.id)
+
 
     function onChange(event: React.ChangeEvent<HTMLInputElement>){
         const {name, value} = event.target;
 
-        if(!user1 || !user2)
+        if(!author || !receiver)
             return
-
         setMessageToPost({
             ...messageToPostInitialState,
              [name]: value,
-            authorId: user1.id,
-            receiverId: user2.id
+            authorId: author.id,
+            receiverId: receiver.id
         })
     }
 
@@ -56,13 +69,13 @@ function App() {
 
   return (
       <>
-        <NavBar user={user1? user1: null}/>
+        <NavBar user={author? author: null}/>
 
         <div className={"message-area-sidebar-container"}>
 
-        <Contacts users={constacts}/>
+        <Contacts users={contacts}/>
 
-        {/*<MessageArea user={user1? user1: null} messages={messages}/>*/}
+            {receiver && <MessageArea receiverId={receiver.id} authorId={author.id}/>}
 
         </div>
 
