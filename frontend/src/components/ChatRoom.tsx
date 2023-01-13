@@ -54,14 +54,13 @@ export default function ChatRoom(){
     function onChange(event: React.ChangeEvent<HTMLInputElement>){
         const {name, value} = event.target;
 
-        if(!author || !receiver)
-            return
+
 
         setMessageToPost({
             ...messageToPostInitialState,
             [name]: value,
-            authorId: author.id,
-            receiverId: receiver.id
+            authorId: authorId as string,
+            receiverId: receiverId as string
         })
     }
 
