@@ -1,92 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './App.css';
-import useUsers from "./hooks/useUsers";
-import {Message} from "./model/Message";
-import {createMessage} from "./api/Api";
-import NavBar from "./components/NavBar";
-import Contacts from "./components/Contacts";
-import useMessages from "./hooks/useMessages";
-import {useParams} from "react-router-dom";
-import MessageArea from "./components/MessageArea";
-import {User} from "./model/User";
+import Home from "./components/Home";
+import {BrowserRouter, Route, Routes} from "react-router-dom";
+import ChatRoom from "./components/ChatRoom";
 
-const messageToPostInitialState = {
-    id: "",
-    text: "",
-    authorId: "",
-    receiverId: "",
-    createdAt: ""
-}
+
 
 
 function App() {
 
-    let id = window.location.pathname.replace("/app/","")
-    console.log("muslimsId",id)
 
-
-    const[messageToPost,setMessageToPost] = useState<Message>(messageToPostInitialState)
-    const [users] = useUsers([])
-    const [messages,setMessages] = useMessages([]);
-
-
-    const author = users && users.length && users.find(u =>  u.name === "User1")
-    const receiver = users && users.length && users.find(u =>  u.id == id)
-
-
-    if(!author ){
-        return <div>error</div>
-    }
-
-
-    const contacts = users.filter(u => u.id !== author.id)
-
-
-    function onChange(event: React.ChangeEvent<HTMLInputElement>){
-        const {name, value} = event.target;
-
-        if(!author || !receiver)
-            return
-        setMessageToPost({
-            ...messageToPostInitialState,
-             [name]: value,
-            authorId: author.id,
-            receiverId: receiver.id
-        })
-    }
-
-    function onSubmit ( event: React.FormEvent<HTMLFormElement> ){
-        event.preventDefault()
-
-        // you can't sed a message twas
-        if(messageToPost.text !== "")
-        createMessage(messageToPost)
-
-        setMessages([...messages, messageToPost])
-        setMessageToPost(messageToPostInitialState)
-
-    }
 
   return (
       <>
-        <NavBar user={author? author: null}/>
 
-        <div className={"message-area-sidebar-container"}>
+      <BrowserRouter>
+          <Routes>
+              <Route path={"/"} element={<Home/>} />
+              <Route path={"/home/:author_receiverId"} element={<ChatRoom/>} />
+          </Routes>
+      </BrowserRouter>
 
-        <Contacts users={contacts}/>
 
-            {receiver && <MessageArea receiverId={receiver.id} authorId={author.id}/>}
-
-        </div>
-
-          <div className={"message-input"}>
-              <form onSubmit={onSubmit}>
-                  <input name={"text"} type={"text"} value={messageToPost.text} onChange={onChange} />
-                  <button type={"submit"}>send</button>
-              </form>
-          </div>
-
-      </>
+</>
   );
 }
 
