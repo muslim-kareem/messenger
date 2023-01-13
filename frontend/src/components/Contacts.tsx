@@ -6,17 +6,20 @@ export default function Contacts({users,authorId}:{
     users: User[] | null
 }){
 
-    /*
 
-     */
+
+
     return(
-      <>
-          <div className={"contacts-container"}>
-                  {users?.map(u => <a href={"/chatroom/"+ (authorId + " "+ u.id)} key={u.id}>
-                      <div key={u.id}>{u.name}</div>
-                  </a>)}
-          </div>
+        <>
+            {users?.map(u => (
+                <div className="user-container" key={u.id}>
+                    <a href={"/chatroom/"+ (authorId + " "+ u.id)}>
+                        <div>{u.name}</div>
+                    </a>
+                </div>
+            ))}
+        </>
 
-      </>
+
     )
 }
