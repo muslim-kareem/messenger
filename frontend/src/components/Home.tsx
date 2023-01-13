@@ -1,18 +1,20 @@
 import useUsers from "../hooks/useUsers";
 import NavBar from "./NavBar";
 import Contacts from "./Contacts";
+import {useParams} from "react-router-dom";
 
 
 
 export default function Home(){
 
-
+    let {username} = useParams()
 
     const [users] = useUsers([])
 
-
-    const author = users && users.length && users.find(u =>  u.name === "User1")
-    const receiver = users && users.length && users.find(u =>  u.id == "User2")
+    if(!username){
+        return <div></div>
+    }
+    const author = users && users.length && users.find(u =>  u.name === username )
 
 
     if(!author ){
