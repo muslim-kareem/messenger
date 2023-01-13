@@ -6,7 +6,7 @@
   background-color: darkolivegreen;
   color: #fff;
   padding: 0 20px;
-  width: 60%;
+  width: 50%;
   margin: auto;
 }
 
@@ -37,7 +37,8 @@
 }
 
 .sidebar {
-  width: 35%;
+  height: 100%;
+  width: 25%;
   box-shadow: rgba(6, 24, 44, 0.4) 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
 }
 .message-area {
@@ -57,7 +58,7 @@
 
 .message-area-sidebar-container {
   display: flex;
-  width: 63%;
+  width: 50%;
   margin: auto;
   height: 400px;
   margin-top: 20px;
@@ -82,3 +83,26 @@
   background-color: #bfcad3;
 }
 
+
+
+.sidebar2{
+  float: left;
+  height: 100vh;
+  width: 90px;
+  background-color: #578FFF;
+  text-align: center;
+}
+
+.messenger-header{
+  width: 100%;
+  height: 70px;
+  background-color: lightgray;
+ text-align: center;
+
+}
+
+.messenger-container{
+  display: grid;
+  grid-template-columns: 90px 1fr;
+
+}

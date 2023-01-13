@@ -4,20 +4,19 @@ import Contacts from "./Contacts";
 import {useParams} from "react-router-dom";
 
 
-
-export default function Home(){
+export default function Home() {
 
     let {username} = useParams()
 
     const [users] = useUsers([])
 
-    if(!username){
+    if (!username) {
         return <div></div>
     }
-    const author = users && users.length && users.find(u =>  u.name === username )
+    const author = users && users.length && users.find(u => u.name === username)
 
 
-    if(!author ){
+    if (!author) {
         return <div>error</div>
     }
 
@@ -25,19 +24,28 @@ export default function Home(){
     const contacts = users.filter(u => u.id !== author.id)
 
 
+    //    <NavBar user={author? author: null}/>
+
+    // <div className={"message-area-sidebar-container"}>
+
+    //   <Contacts users={contacts} authorId={author.id}/>
+
+    // </div>
 
 
     return (
         <>
-            <NavBar user={author? author: null}/>
-
-            <div className={"message-area-sidebar-container"}>
-
-                <Contacts users={contacts} authorId={author.id}/>
+            <div className={"messenger-container"}>
+                <div className={"sidebar2"}>
+                    <h2>User1</h2>
+                </div>
+                <div className={"messenger-header"}>
+                <h2>Messenger</h2>
+            </div>
 
             </div>
 
+        </>
 
-
-    </>)
+    )
 }
