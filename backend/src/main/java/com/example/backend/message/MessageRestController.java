@@ -3,6 +3,7 @@ package com.example.backend.message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -23,17 +24,31 @@ public class MessageRestController {
         return service.getAll();
     }
 
-    @GetMapping("/author/{id}")
-    public Message getMessageByAuthorId(@PathVariable String id){
-        return service.getMessageByAuthorId(id);
+    @GetMapping("/chat/{id}")
+    public List<Message> getMessageByAuthorId(@PathVariable String id){
+        List<Message> theMessages = service.getAll();
+
+        String authorId = id.substring(0,id.indexOf(" "));
+        String receiverId = id.substring(id.indexOf(" ") ).trim();
+
+        // just to test the ids in the console
+        System.out.println("log "+id);
+        System.out.println("log "+authorId);
+        System.out.println("log "+receiverId);
+
+        List<Message> chatMessages = new ArrayList<>();
+
+        for (Message message : theMessages) {
+            if(message.getAuthorId().equals(authorId) && message.getReceiverId().equals(receiverId)){
+                chatMessages.add(message);
+            }
+        }
+
+        return chatMessages;
+
     }
 
 
-    // Adrian was here
-    @GetMapping("/receiver/{id}")
-    public Message getMessageByReceiverId(@PathVariable String id){
-        return  service.getMessageByReceiverId(id);
-    }
 
 
 

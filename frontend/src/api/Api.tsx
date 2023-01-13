@@ -14,8 +14,8 @@ export const getMessages = async (): Promise<Message[]> => {
 };
 
 
-export const getMessage = async (id: string): Promise<Message> => {
-    const response = await axios.get<Message>('/api/messages'+id);
+export const getChatMessages = async (authorId_receiverId: string): Promise<Message[]> => {
+    const response = await axios.get<Message[]>('/api/messages/chat/' + authorId_receiverId );
     return response.data;
 };
 

@@ -6,16 +6,8 @@ import {getMessages} from "../api/Api";
 export default function useMessages(initialState: Message[]): [Message[], Dispatch<SetStateAction<Message[]>>] {
     const [messages, setMessages] = useState<Message[]>([]);
 
-    console.log(messages)
 
 
-    useEffect(() => {
-        (async () => {
-            const theMessages = await getMessages();
-            setMessages(theMessages)
-
-        })();
-    }, []);
 
 
     useEffect(() => {

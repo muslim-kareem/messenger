@@ -1,7 +1,8 @@
 import {User} from "../model/User";
 import React from "react";
 
-export default function Contacts({users}:{
+export default function Contacts({users,authorId}:{
+    authorId: string
     users: User[] | null
 }){
 
@@ -10,7 +11,7 @@ export default function Contacts({users}:{
         <div className="sidebar">
             <h2>Contacts</h2>
             <ul>
-                {users?.map(u => <div key={u.id}>{u.name}</div>)}
+                {users?.map(u => <a href={"/home/"+ (authorId + " "+ u.id)} key={u.id}><div  key={u.id}>{u.name}</div></a>)}
             </ul>
         </div>
     )
