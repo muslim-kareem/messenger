@@ -11,7 +11,7 @@ export default function LoginPage() {
                 <div className={'login-form'}>
                     <p>Wähle deinen Usernamen</p>
                     <input type={'text'} onChange={(e) => setName(e.target.value)} required/>
-                    <Link to={"/x/"+name}>
+                    <Link to={"/home/"+name}>
                         <button className={'login-button'}>Login</button>
                     </Link>
                 </div>

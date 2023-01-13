@@ -39,7 +39,8 @@ public class MessageRestController {
         List<Message> chatMessages = new ArrayList<>();
 
         for (Message message : theMessages) {
-            if(message.getAuthorId().equals(authorId) && message.getReceiverId().equals(receiverId)){
+            if(message.getAuthorId().equals(authorId) && message.getReceiverId().equals(receiverId) ||
+               message.getAuthorId().equals(receiverId) && message.getReceiverId().equals(authorId) ){
                 chatMessages.add(message);
             }
         }
