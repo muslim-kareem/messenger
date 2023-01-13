@@ -11,7 +11,7 @@ export default function useMessages(initialState: Message[]): [Message[], Dispat
 
 
     useEffect(() => {
-        const id = setTimeout(() => {
+         setTimeout(() => {
             (async () => {
                 const theMessages = await getMessages();
                 setMessages(theMessages)

@@ -31,11 +31,6 @@ public class MessageRestController {
         String authorId = id.substring(0,id.indexOf(" "));
         String receiverId = id.substring(id.indexOf(" ") ).trim();
 
-        // just to test the ids in the console
-        System.out.println("log "+id);
-        System.out.println("log "+authorId);
-        System.out.println("log "+receiverId);
-
         List<Message> chatMessages = new ArrayList<>();
 
         for (Message message : theMessages) {

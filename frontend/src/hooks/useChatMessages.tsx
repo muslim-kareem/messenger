@@ -11,13 +11,14 @@ export default function useChatMessages(authorId_receiverId: string): [Message[]
 
 
     useEffect(() => {
-
+        setTimeout( () => {
             (async () => {
                 const theMessages = await getChatMessages(authorId_receiverId);
                 setChatMessages(theMessages)
             })();
+        },500)
 
-    }, [authorId_receiverId])
+    }, [chatMessages])
 
 
     return [chatMessages,setChatMessages];
