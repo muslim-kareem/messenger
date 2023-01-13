@@ -1,108 +1,96 @@
+
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 60px;
-  background-color: darkolivegreen;
-  color: #fff;
-  padding: 0 20px;
-  width: 50%;
-  margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    background-color: darkolivegreen;
+    color: #fff;
+    padding: 0 20px;
+    width: 50%;
+    margin: auto;
 }
 
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-}
 
-.navbar a:hover {
-  color: #ccc;
-}
-
-.navbar .logo {
-  font-size: 20px;
-  font-weight: bold;
-}
-
-.navbar .menu {
-  display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navbar .menu li {
-  margin: 0 10px;
-}
-
-.sidebar {
-  height: 100%;
-  width: 25%;
-  box-shadow: rgba(6, 24, 44, 0.4) 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
-}
 .message-area {
-  height: 300px;
-  margin-left: 20px;
-  width: 65%;
-  box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
-  overflow: scroll;
-  overflow-x: unset;
+    height: 300px;
+    margin-left: 20px;
+    width: 65%;
+    box-shadow: rgba(6, 24, 44, 0.4) 0 0 0 2px, rgba(6, 24, 44, 0.65) 0 4px 6px -1px, rgba(255, 255, 255, 0.08) 0 1px 0 inset;
+    overflow: scroll;
+    overflow-x: unset;
 }
 
-.message-area h3{
-  margin: 0;
+.message-area h3 {
+    margin: 0;
 
 
 }
 
 .message-area-sidebar-container {
-  display: flex;
-  width: 50%;
-  margin: auto;
-  height: 400px;
-  margin-top: 20px;
+    display: flex;
+    width: 50%;
+    margin: auto;
+    height: 400px;
+    margin-top: 20px;
 }
 
 .message-card {
-  display: inline-block;
+    display: inline-block;
 }
 
 .author {
-  margin-top: 5px;
-  text-align: right;
-  word-wrap:break-word;
-  white-space: pre-line;
-  padding: 10px;
-  background-color: #faf7f7;
+    margin-top: 5px;
+    text-align: right;
+    word-wrap: break-word;
+    white-space: pre-line;
+    padding: 10px;
+    background-color: #faf7f7;
 }
 
 .receiver {
-  margin-top: 5px;
+    margin-top: 5px;
 
-  background-color: #bfcad3;
+    background-color: #bfcad3;
 }
 
 
+/*
+Ab hier neue Homepage
+ */
 
-.sidebar2{
-  float: left;
-  height: 100vh;
-  width: 90px;
-  background-color: #578FFF;
-  text-align: center;
+.sidebar2 {
+    float: left;
+    height: 100vh;
+    width: 90px;
+    background-color: #578FFF;
+    text-align: center;
 }
 
-.messenger-header{
-  width: 100%;
-  height: 70px;
-  background-color: lightgray;
- text-align: center;
+.messenger-header {
+    display: grid;
+    width: 100%;
+    height: 70px;
+    text-align: center;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px -2px 0px;
 
 }
 
-.messenger-container{
-  display: grid;
-  grid-template-columns: 90px 1fr;
+
+.messenger-container {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+
+}
+
+.contacts-container {
+    margin-top: 2rem;
+    margin-left: 1rem;
+    width: 90%;
+    height: 60px;
+    background-color: #F1F5FE;
+    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    border-radius: 5px;
+
 
 }

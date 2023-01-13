@@ -1,5 +1,5 @@
 import useUsers from "../hooks/useUsers";
-import NavBar from "./NavBar";
+import UserSideBar from "./UserSideBar";
 import Contacts from "./Contacts";
 import {useParams} from "react-router-dom";
 
@@ -24,26 +24,21 @@ export default function Home() {
     const contacts = users.filter(u => u.id !== author.id)
 
 
-    //    <NavBar user={author? author: null}/>
-
-    // <div className={"message-area-sidebar-container"}>
-
-    //   <Contacts users={contacts} authorId={author.id}/>
-
-    // </div>
 
 
     return (
         <>
             <div className={"messenger-container"}>
                 <div className={"sidebar2"}>
-                    <h2>User1</h2>
+                    <UserSideBar user={author? author: null}/>
                 </div>
                 <div className={"messenger-header"}>
-                <h2>Messenger</h2>
-            </div>
-
-            </div>
+                    <h2>Messenger</h2>
+                    <div>
+                    <Contacts users={contacts} authorId={author.id}/>
+                    </div>
+                </div>
+                </div>
 
         </>
 

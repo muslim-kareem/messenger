@@ -4,7 +4,7 @@ import MessageCard from "./MessageCard";
 import useUsers from "../hooks/useUsers";
 import {useParams} from "react-router-dom";
 import useChatMessages from "../hooks/useChatMessages";
-import NavBar from "./NavBar";
+import UserSideBar from "./UserSideBar";
 import {createMessage} from "../api/Api";
 import {Message} from "../model/Message";
 
@@ -74,7 +74,7 @@ export default function ChatRoom(){
     return(
         <>
 
-        <NavBar user={author? author: null}/>
+        <UserSideBar user={author? author: null}/>
             <div>{receiver && receiver.name}</div>
 
 

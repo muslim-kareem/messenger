@@ -7,16 +7,15 @@ export default function Contacts({users,authorId}:{
 }){
 
     /*
-    <div className="sidebar">
-        <h3>Contacts</h3>
-        <ul>
-            {users?.map(u => <a href={"/chatroom/"+ (authorId + " "+ u.id)} key={u.id}><div  key={u.id}>{u.name}</div></a>)}
-        </ul>
-    </div>
 
      */
     return(
       <>
+          <div className={"contacts-container"}>
+                  {users?.map(u => <a href={"/chatroom/"+ (authorId + " "+ u.id)} key={u.id}>
+                      <div key={u.id}>{u.name}</div>
+                  </a>)}
+          </div>
 
       </>
     )

@@ -1,7 +1,10 @@
 html, body {
   margin: 0;
+  padding: 0;
   font-family: "Roboto", "Arial", serif;
 }
+
+
 
 .container {
   min-height: 100vh;
@@ -22,3 +25,4 @@ html, body {
   border: 1px solid lightgrey;
   background-color: white;
 }
+
