@@ -6,8 +6,9 @@ export default function MessageCard({message,isAuthor}:{
 }){
 
     return(
-        <>
-                <div className={isAuthor?"author": "receiver"}>{message.text}</div>
-        </>
+        <div>
+                <div className={isAuthor?"author": "receiver"}>{message.text}<div className={"message-date"}>{message.createdAt}</div></div>
+
+        </div>
     )
 }
