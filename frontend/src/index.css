@@ -3,10 +3,9 @@ html, body {
   font-family: "Roboto", "Arial", serif;
 }
 
-.container {
+.login-container {
   min-height: 100vh;
   display:flex;
-  background-color: lightgrey;
 }
 
 .login {
