@@ -6,7 +6,7 @@ export default function LoginPage() {
     const [name, setName] = useState<String>("");
 
     return(
-        <div className={'container'}>
+        <div className={'login-container'}>
             <div className={'login'}>
                 <div className={'login-form'}>
                     <p>Wähle deinen Usernamen</p>
