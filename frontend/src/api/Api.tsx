@@ -7,6 +7,11 @@ export const getUsers = async (): Promise<User[]> => {
     return response.data;
 };
 
+export const getUserByName = async (userName:string): Promise<User> => {
+    const response = await axios.get<User>('/api/users/'+userName);
+    return response.data;
+};
+
 
 export const getMessages = async (): Promise<Message[]> => {
     const response = await axios.get<Message[]>('/api/messages');

@@ -2,6 +2,7 @@ import useUsers from "../hooks/useUsers";
 import NavBar from "./NavBar";
 import Contacts from "./Contacts";
 import {useParams} from "react-router-dom";
+import useUser from "../hooks/useUser";
 
 
 
@@ -11,14 +12,16 @@ export default function Home(){
 
     const [users] = useUsers([])
 
-    if(!username){
-        return <div></div>
-    }
-    const author = users && users.length && users.find(u =>  u.name === username )
+
+    const [author] = useUser(username as string)
 
 
-    if(!author ){
-        return <div>error</div>
+
+    if( author.name ===  undefined ){
+
+        // the style should be finished
+        return <div>User is not found</div>
+
     }
 
 

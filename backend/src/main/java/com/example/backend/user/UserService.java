@@ -19,4 +19,8 @@ public class UserService {
         return userRepo.findAll();
     }
 
+    public User getUserByName(String userName){
+        return userRepo.getUserByName(userName);
+    }
+
 }

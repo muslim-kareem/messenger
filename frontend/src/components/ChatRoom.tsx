@@ -65,7 +65,7 @@ export default function ChatRoom(){
 
     const messagesEndRef = useRef<null | HTMLDivElement>(null)
     const scrollToBottom = () => {
-        messagesEndRef.current?.scrollIntoView({ behavior: "auto" })
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" })
     }
     useEffect(() => {
         scrollToBottom()
