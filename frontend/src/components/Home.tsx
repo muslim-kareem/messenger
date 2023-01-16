@@ -24,7 +24,7 @@ export default function Home() {
     const contacts = users.filter(u => u.id !== author.id)
 
 
-
+// div Container um Home und width anpassen etc.
 
     return (
         <>

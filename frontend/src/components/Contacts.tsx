@@ -12,11 +12,13 @@ export default function Contacts({users,authorId}:{
     return(
         <>
             {users?.map(u => (
-                <div className="user-container" key={u.id}>
+
                     <a href={"/chatroom/"+ (authorId + " "+ u.id)}>
+                        <div className="user-container" key={u.id}>
                         <div>{u.name}</div>
+                        </div>
                     </a>
-                </div>
+
             ))}
         </>
 

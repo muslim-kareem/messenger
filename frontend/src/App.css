@@ -44,7 +44,7 @@ Ab hier neue Homepage
     float: left;
     height: 100vh;
     width: 90px;
-    background-color: #578FFF;
+    background-color: #005fff;
     text-align: center;
 }
 
@@ -53,7 +53,7 @@ Ab hier neue Homepage
     width: 100%;
     height: 70px;
     text-align: center;
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px -2px 0px;
+    box-shadow: rgba(0, 95, 255, 1) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px -2px 0px;
 
 }
 
@@ -70,7 +70,7 @@ Ab hier neue Homepage
     width: 90%;
     height: 60px;
     background-color: #F1F5FE;
-    box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+    box-shadow: rgba(0, 102, 214, 0.3) 0px 0px 0px 3px;
     border-radius: 5px;
 
 
